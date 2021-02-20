@@ -1,0 +1,65 @@
+﻿@model PassionProject_Danyal.Models.ViewModels.ShowDriver
+
+@{
+    ViewBag.Title = "details";
+}
+
+<h2>Driver Profile</h2>
+
+<div>
+    <div>@Html.ActionLink("Delete", "DeleteConfirm", new { id = Model.driver.DriverID })</div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.driver.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.driver.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.driver.PSNTag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.driver.PSNTag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.driver.Nationality)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.driver.Nationality)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.driver.Abbreviation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.driver.Abbreviation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.driver.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.driver.Status)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.team.TeamName)
+        </dt>
+
+        <dd>
+            @Html.ActionLink(Model.team.TeamName, "Details", "Team", new { id = Model.team.TeamID }, new { })
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.driver.DriverID }) |
+    @Html.ActionLink("Back to List", "List")
+</p>

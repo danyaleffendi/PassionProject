@@ -1,0 +1,56 @@
+﻿@model PassionProject_Danyal.Models.ViewModels.ShowTeam
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Team Profile</h2>
+
+<div>
+    <h4>Team @Model.team.TeamName</h4>
+    <hr />
+    <div>@Html.ActionLink("Delete", "DeleteConfirm", new { id = Model.team.TeamID })</div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.team.TeamName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.team.TeamName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.team.TeamColor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.team.TeamColor)
+        </dd>
+
+    </dl>
+</div>
+<div style="float:left;margin-right:0%; width:49%;">
+    <div>
+        <h4>Drivers:</h4>
+        <div>
+            @foreach (var driver in Model.teamdrivers)
+            {
+                <div>
+                    @Html.ActionLink(
+                    driver.Name + " " + driver.Nationality,
+                    "Details",
+                    "Driverer",
+                    new { id = driver.DriverID },
+                    new { })
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
+<div style="clear:both;"></div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.team.TeamID }) |
+    @Html.ActionLink("Back to List", "List")
+</p>

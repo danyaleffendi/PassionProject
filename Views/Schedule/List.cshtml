@@ -1,0 +1,53 @@
+﻿@model IEnumerable<PassionProject_Danyal.Models.ScheduleDto>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>Race Schedule 2021</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Round)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Circuit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Abbreviation)
+        </th>
+        <th>Actions</th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Round)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Circuit)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Date)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Abbreviation)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.RaceID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.RaceID }) |
+        @Html.ActionLink("Delete", "DeleteConfirm", new { id = item.RaceID })
+    </td>
+</tr>
+}
+
+</table>

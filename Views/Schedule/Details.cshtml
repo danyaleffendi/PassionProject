@@ -1,0 +1,50 @@
+﻿@model PassionProject_Danyal.Models.ViewModels.ShowSchedule
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Race Details</h2>
+
+<div>
+    <div>@Html.ActionLink("Delete", "DeleteConfirm", new { id = Model.schedule.RaceID })</div>
+    <hr />
+    <dl class="dl-horizontal">
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.schedule.Round)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.schedule.Round)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.schedule.Circuit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.schedule.Circuit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.schedule.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.schedule.Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.driver.Abbreviation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.driver.Abbreviation)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.schedule.RaceID }) |
+    @Html.ActionLink("Back to List", "List")
+</p>
