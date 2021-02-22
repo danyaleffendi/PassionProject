@@ -11,13 +11,6 @@
     <h4>Driver</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Team.TeamName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Team.TeamName)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.Name)
@@ -61,7 +54,8 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm("Delete", "Driver", new { id = Model.DriverID }))
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

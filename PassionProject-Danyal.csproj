@@ -200,6 +200,10 @@
     <Compile Include="Migrations\202102192305479_passionprojectdanyal2.Designer.cs">
       <DependentUpon>202102192305479_passionprojectdanyal2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102200645573_passionproject3.cs" />
+    <Compile Include="Migrations\202102200645573_passionproject3.Designer.cs">
+      <DependentUpon>202102200645573_passionproject3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\Driver.cs" />
@@ -312,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102192305479_passionprojectdanyal2.resx">
       <DependentUpon>202102192305479_passionprojectdanyal2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102200645573_passionproject3.resx">
+      <DependentUpon>202102200645573_passionproject3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

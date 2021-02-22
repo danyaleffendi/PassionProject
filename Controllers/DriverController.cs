@@ -60,7 +60,7 @@ namespace PassionProject_Danyal.Controllers
             //Debug.WriteLine(response.StatusCode);
             if (response.IsSuccessStatusCode)
             {
-                //Put data into player data transfer object
+                //Put data into driver data transfer object
                 DriverDto SelectedDriver = response.Content.ReadAsAsync<DriverDto>().Result;
                 ViewModel.driver = SelectedDriver;
 
@@ -90,7 +90,7 @@ namespace PassionProject_Danyal.Controllers
         public ActionResult Create(Driver DriverInfo)
         {
             Debug.WriteLine(DriverInfo.Name);
-            string url = "playerdata/addplayer";
+            string url = "driverdata/adddriver";
             Debug.WriteLine(jss.Serialize(DriverInfo));
             HttpContent content = new StringContent(jss.Serialize(DriverInfo));
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
@@ -144,7 +144,7 @@ namespace PassionProject_Danyal.Controllers
         public ActionResult Edit(int id, Driver driver)
         {
             Debug.WriteLine(driver.Name);
-            string url = "driverdata/updatedriver/" + id;
+            string url = "driverdata/updatedriver/"+id;
             Debug.WriteLine(jss.Serialize(driver));
             HttpContent content = new StringContent(jss.Serialize(driver));
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
@@ -172,8 +172,8 @@ namespace PassionProject_Danyal.Controllers
             if (response.IsSuccessStatusCode)
             {
                 //Put data into driver data transfer object
-                DriverDto SelectedPlayer = response.Content.ReadAsAsync<DriverDto>().Result;
-                return View(SelectedPlayer);
+                DriverDto SelectedDriver = response.Content.ReadAsAsync<DriverDto>().Result;
+                return View(SelectedDriver);
             }
             else
             {

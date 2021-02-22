@@ -57,7 +57,7 @@ namespace PassionProject_Danyal.Controllers
             string url = "teamdata/findteam/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
             //Can catch the status code (200 OK, 301 REDIRECT), etc.
-            //Debug.WriteLine(response.StatusCode);
+            //Debug.WriteLine(response.StatusCode);            
             if (response.IsSuccessStatusCode)
             {
                 //Put data into Team data transfer object
@@ -68,6 +68,7 @@ namespace PassionProject_Danyal.Controllers
                 //A team not having any drivers is not an issue.
                 url = "teamdata/getdriversforteam/" + id;
                 response = client.GetAsync(url).Result;
+                
                 //Can catch the status code (200 OK, 301 REDIRECT), etc.
                 //Debug.WriteLine(response.StatusCode);
                 IEnumerable<DriverDto> SelectedDrivers = response.Content.ReadAsAsync<IEnumerable<DriverDto>>().Result;

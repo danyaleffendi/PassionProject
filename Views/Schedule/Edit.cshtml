@@ -1,65 +1,70 @@
 ﻿@model PassionProject_Danyal.Models.ViewModels.UpdateSchedule
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "View";
 }
 
-<h2>Edit Race Details</h2>
-
+<h2>Update</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-    <h4>Schedule</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.schedule.RaceID)
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.schedule.Round, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.schedule.Round, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.schedule.Round, "", new { @class = "text-danger" })
-        </div>
-    </div>
+    <div class="form-horizontal">
+        <h4>Schedule</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.schedule.RaceID, new { Name = "RaceID" })
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.schedule.Circuit, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.schedule.Circuit, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.schedule.Circuit, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.schedule.Date, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.schedule.Date, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.schedule.Date, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.schedule.RaceID, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <select name="DriverID">
-                @foreach (var driver in Model.alldrivers)
-                {
-                    <option value="@driver.Abbreviation">@driver.Abbreviation</option>
-                }
-            </select>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
-                </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.schedule.Round, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.schedule.Round, new { htmlAttributes = new { @class = "form-control", Name = "Round" } })
+                @Html.ValidationMessageFor(model => model.schedule.Round, "", new { @class = "text-danger" })
             </div>
         </div>
-        }
 
-        <div>
-            @Html.ActionLink("Back to List", "List")
+        <div class="form-group">
+            @Html.LabelFor(model => model.schedule.Circuit, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.schedule.Circuit, new { htmlAttributes = new { @class = "form-control", Name = "Circuit" } })
+                @Html.ValidationMessageFor(model => model.schedule.Circuit, "", new { @class = "text-danger" })
+            </div>
         </div>
 
+        <div class="form-group">
+            @Html.LabelFor(model => model.schedule.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.schedule.Date, new { htmlAttributes = new { @class = "form-control", Name = "Date" } })
+                @Html.ValidationMessageFor(model => model.schedule.Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.schedule.DriverID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select name="DriverID">
+                        @foreach (var driver in Model.alldrivers)
+                        {
+                            <option value="@driver.DriverID">@driver.Abbreviation</option>
+                        }
+                </select>
+                @{
+
+                }
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "List")
+</div>

@@ -15,7 +15,7 @@
     <h4>Driver</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.driver.DriverID)
+    @Html.HiddenFor(model => model.driver.DriverID, new { Name = "DriverID" })
 
     <div class="form-group">
         @Html.LabelFor(model => model.driver.Name, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -63,12 +63,7 @@
             <select name="TeamID">
                 @foreach (var team in Model.allteams)
                 {
-                    string selected = "";
-                    if (Model.driver.TeamID == team.TeamID)
-                    {
-                        selected = "";
-                    }
-                    <option value="@team.TeamID" @selected>@team.TeamName</option>
+                    <option value="@team.TeamID">@team.TeamName</option>
                 }
             </select>
 
