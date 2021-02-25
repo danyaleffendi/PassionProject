@@ -41,21 +41,18 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.schedule.DriverID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <form method="POST" action="/schedule/schedule">
                 <select name="DriverID">
-                        @foreach (var driver in Model.alldrivers)
-                        {
-                            <option value="@driver.DriverID">@driver.Abbreviation</option>
-                        }
+                    @foreach (var driver in Model.alldrivers)
+                    {
+                    <option value="@driver.DriverID">@driver.DriverID</option>
+                    }
                 </select>
-                @{
-
-                }
-
-            </div>
+                <input type="number" name="DriverID" value="@Model.schedule.RaceID" style="display:none;" />
+                <input type="submit" value="Winner" />
+            </form>  
+            
         </div>
-
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

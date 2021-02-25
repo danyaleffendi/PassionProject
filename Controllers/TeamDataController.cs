@@ -55,7 +55,7 @@ namespace PassionProject_Danyal.Controllers
         /// GET: api/TeamData/GetDriversForTeam
         /// </example>
         [ResponseType(typeof(IEnumerable<DriverDto>))]
-        public IHttpActionResult GetPlayersForTeam(int id)
+        public IHttpActionResult GetDriversForTeam(int id)
         {
             List<Driver> Drivers = db.Drivers.Where(p => p.TeamID == id)
                 .ToList();
@@ -64,7 +64,7 @@ namespace PassionProject_Danyal.Controllers
             //Here you can choose which information is exposed to the API
             foreach (var Driver in Drivers)
             {
-                DriverDto NewPlayer = new DriverDto
+                DriverDto NewDriver = new DriverDto
                 {
                     DriverID = Driver.DriverID,
                     Name = Driver.Name,
@@ -74,7 +74,7 @@ namespace PassionProject_Danyal.Controllers
                     Status = Driver.Status,
                     TeamID = Driver.TeamID
                 };
-                DriverDtos.Add(NewPlayer);
+                DriverDtos.Add(NewDriver);
             }
 
             return Ok(DriverDtos);
@@ -181,10 +181,16 @@ namespace PassionProject_Danyal.Controllers
 
             db.Teams.Add(Team);
             db.SaveChanges();
-
+            Debug.WriteLine(Team.TeamName);
             return Ok(Team.TeamID);
         }
 
+        [HttpPost]
+        public IHttpActionResult Test([FromBody]Team MyTeam)
+        {
+            Debug.WriteLine(MyTeam.TeamColor);
+            return Ok(MyTeam.TeamName);
+        }
         /// <summary>
         /// Deletes a Team in the database
         /// </summary>

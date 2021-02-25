@@ -1,7 +1,7 @@
-﻿@model PassionProject_Danyal.Models.Team
+﻿@model PassionProject_Danyal.Models.TeamDto
 
 @{
-    ViewBag.Title = "DeleteConfirm";
+    ViewBag.Title = "View";
 }
 
 <h2>DeleteConfirm</h2>
@@ -29,7 +29,8 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm("Delete", "Team", new { id = Model.TeamID }))
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

@@ -16,7 +16,7 @@ namespace PassionProject_Danyal.Models
 
         public string TeamColor { get; set; }
 
-        //A team can have many players
+        //A team can have many drivers
         public ICollection<Driver> Drivers { get; set; }
 
 

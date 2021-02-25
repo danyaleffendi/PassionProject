@@ -70,16 +70,12 @@ namespace PassionProject_Danyal.Controllers
                 response = client.GetAsync(url).Result;
                 
                 //Can catch the status code (200 OK, 301 REDIRECT), etc.
-                //Debug.WriteLine(response.StatusCode);
+                Debug.WriteLine(response.StatusCode);
                 IEnumerable<DriverDto> SelectedDrivers = response.Content.ReadAsAsync<IEnumerable<DriverDto>>().Result;
                 ViewModel.teamdrivers = SelectedDrivers;
 
 
-                url = "teamdata/getsponsorsforteam/" + id;
-                response = client.GetAsync(url).Result;
-                //Can catch the status code (200 OK, 301 REDIRECT), etc.
-                //Debug.WriteLine(response.StatusCode);
-                //Put data into Team data transfer object
+     
 
                 return View(ViewModel);
             }
