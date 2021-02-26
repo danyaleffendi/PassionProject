@@ -72,10 +72,7 @@ namespace PassionProject_Danyal.Controllers
                 //Can catch the status code (200 OK, 301 REDIRECT), etc.
                 Debug.WriteLine(response.StatusCode);
                 IEnumerable<DriverDto> SelectedDrivers = response.Content.ReadAsAsync<IEnumerable<DriverDto>>().Result;
-                ViewModel.teamdrivers = SelectedDrivers;
-
-
-     
+                ViewModel.teamdrivers = SelectedDrivers;     
 
                 return View(ViewModel);
             }

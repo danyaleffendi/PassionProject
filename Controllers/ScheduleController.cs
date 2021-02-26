@@ -60,16 +60,16 @@ namespace PassionProject_Danyal.Controllers
             //Debug.WriteLine(response.StatusCode);
             if (response.IsSuccessStatusCode)
             {
-                //Put data into player data transfer object
+                //Put data into driver data transfer object
                 ScheduleDto SelectedSchedule = response.Content.ReadAsAsync<ScheduleDto>().Result;
                 ViewModel.schedule = SelectedSchedule;
 
-                /*
-                url = "playerdata/findteamforplayer/" + id;
+                
+                url = "scheduledata/findwinnerforrace/" + id;
                 response = client.GetAsync(url).Result;
-                TeamDto SelectedTeam = response.Content.ReadAsAsync<TeamDto>().Result;
-                ViewModel.team = SelectedTeam;
-                */
+                DriverDto SelectedDriver = response.Content.ReadAsAsync<DriverDto>().Result;
+                ViewModel.driver = SelectedDriver;
+                
                 return View(ViewModel);
 
             }
@@ -122,16 +122,16 @@ namespace PassionProject_Danyal.Controllers
             //Debug.WriteLine(response.StatusCode);
             if (response.IsSuccessStatusCode)
             {
-                //Put data into player data transfer object
+                //Put data into driver data transfer object
                 ScheduleDto SelectedSchedule = response.Content.ReadAsAsync<ScheduleDto>().Result;
                 ViewModel.schedule = SelectedSchedule;
 
-                /* get information about teams this player COULD play for.
-                url = "teamdata/getteams";
+                //get information about drivers who can win this race.
+                url = "driverdata/getdrivers";
                 response = client.GetAsync(url).Result;
-                IEnumerable<PlayerDto> PotentialPlayers = response.Content.ReadAsAsync<IEnumerable<PlayerDto>>().Result;
-                ViewModel.allplayers = PotentialPlayers;
-                */
+                IEnumerable<DriverDto> PotentialPlayers = response.Content.ReadAsAsync<IEnumerable<DriverDto>>().Result;
+                ViewModel.alldrivers = PotentialPlayers;
+                
                 return View(ViewModel);
             }
             else

@@ -63,6 +63,12 @@
             <select name="TeamID">
                 @foreach (var team in Model.allteams)
                 {
+                    //Auto-selects the team the driver is currently assigned to
+                    string selected = "";
+                    if (Model.driver.TeamID == team.TeamID)
+                    {
+                        selected = "";
+                    }
                     <option value="@team.TeamID">@team.TeamName</option>
                 }
             </select>

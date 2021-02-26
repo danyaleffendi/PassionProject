@@ -36,11 +36,11 @@
             @Html.DisplayFor(model => model.schedule.Date)
         </dd>
         <dt>
-            Winner
+            @Html.DisplayNameFor(model => model.schedule.Abbreviation)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.driver.Abbreviation)
+            @Html.ActionLink(Model.schedule.Abbreviation, "Details", "Driver", new { id = Model.schedule.DriverID }, new { })
         </dd>
     </dl>
 </div>

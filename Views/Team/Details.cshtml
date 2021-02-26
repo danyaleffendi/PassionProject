@@ -7,7 +7,7 @@
 <h2>Team Profile</h2>
 
 <div>
-    <h4>Team @Model.team.TeamName</h4>
+    <h4>@Model.team.TeamName</h4>
     <hr />
     <div>@Html.ActionLink("Delete", "DeleteConfirm", new { id = Model.team.TeamID })</div>
     <dl class="dl-horizontal">
@@ -29,28 +29,24 @@
 
     </dl>
 </div>
-<div style="float:left;margin-right:0%; width:49%;">
+<div style="float:right;margin-right:0%; width:49%;">
     <div>
         <h4>Drivers:</h4>
         <div>
             @foreach (var driver in Model.teamdrivers)
             {
                 <div>
-                    @Html.ActionLink(
-                    driver.Name + " " + driver.Nationality,
-                    "Details",
-                    "Driver",
-                    new { id = driver.DriverID },
-                    new { })
+                    @Html.ActionLink(driver.Name + " " + driver.Nationality, "Details", "Driver", new { id = driver.DriverID }, new { })
                 </div>
             }
         </div>
     </div>
 
 </div>
-<div style="clear:both;"></div>
+<div style="clear:both;">
+
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.team.TeamID }) |
+        @Html.ActionLink("Back to List", "List")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.team.TeamID }) |
-    @Html.ActionLink("Back to List", "List")
-</p>

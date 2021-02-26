@@ -41,7 +41,8 @@ namespace PassionProject_Danyal.Controllers
                     Nationality = Driver.Nationality,
                     Abbreviation = Driver.Abbreviation,
                     Status = Driver.Status,
-                    TeamID = Driver.TeamID
+                    TeamID = Driver.TeamID,
+                    TeamName = Driver.Team.TeamName
                 };
                 DriverDtos.Add(NewDriver);
             }
@@ -78,7 +79,8 @@ namespace PassionProject_Danyal.Controllers
                 Nationality = Driver.Nationality,
                 Abbreviation = Driver.Abbreviation,
                 Status = Driver.Status,
-                TeamID = Driver.TeamID
+                TeamID = Driver.TeamID,
+                TeamName = Driver.Team.TeamName
             };
 
             //pass along data as 200 status code OK response
@@ -119,7 +121,40 @@ namespace PassionProject_Danyal.Controllers
             //pass along data as 200 status code OK response
             return Ok(TeamDto);
         }
+        
+        /// <summary>
+        /// Gets a list of races won by the driver in the database alongside a status code (200 OK).
+        /// </summary>
+        /// <param name="id">The driver id</param>
+        /// <returns>A list of races won by the driver </returns>
+        // <example>
+        // GET: api/DriverData/GetRaceWonbyDriver/5
+        // </example>
+        [ResponseType(typeof(IEnumerable<ScheduleDto>))]
+        public IHttpActionResult GetRaceWonbyDriver(int id)
+        {
+            List<Schedule> Schedules = db.Schedule.Where(p => p.DriverID == id)
+                .ToList();
+            List<ScheduleDto> ScheduleDtos = new List<ScheduleDto> { };
 
+            //Here you can choose which information is exposed to the API
+            foreach (var Schedule in Schedules)
+            {
+                //put into a 'friendly object format'
+                ScheduleDto Wonraces = new ScheduleDto
+                {
+                    RaceID = Schedule.RaceID,
+                    Round = Schedule.Round,
+                    Circuit = Schedule.Circuit,
+                    Date = Schedule.Date,
+                };
+
+                ScheduleDtos.Add(Wonraces);
+            }
+            //pass along data as 200 status code OK response
+            return Ok(ScheduleDtos);
+        }
+         
         /// <summary>
         /// Updates a driver in the database given information about the driver.
         /// </summary>

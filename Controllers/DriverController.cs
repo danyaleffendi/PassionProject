@@ -41,8 +41,8 @@ namespace PassionProject_Danyal.Controllers
             HttpResponseMessage response = client.GetAsync(url).Result;
             if (response.IsSuccessStatusCode)
             {
-                IEnumerable<DriverDto> SelectedPlayers = response.Content.ReadAsAsync<IEnumerable<DriverDto>>().Result;
-                return View(SelectedPlayers);
+                IEnumerable<DriverDto> SelectedDrivers = response.Content.ReadAsAsync<IEnumerable<DriverDto>>().Result;
+                return View(SelectedDrivers);
             }
             else
             {
@@ -69,6 +69,16 @@ namespace PassionProject_Danyal.Controllers
                 response = client.GetAsync(url).Result;
                 TeamDto SelectedTeam = response.Content.ReadAsAsync<TeamDto>().Result;
                 ViewModel.team = SelectedTeam;
+
+                //We don't need to throw any errors if this is null
+                //A driver not won any race should not be an issue.
+                url = "driverdata/GetRaceWonbyDriver/" + id;
+                response = client.GetAsync(url).Result;
+
+                //Can catch the status code (200 OK, 301 REDIRECT), etc.
+                Debug.WriteLine(response.StatusCode);
+                IEnumerable<ScheduleDto> SelectedRaces = response.Content.ReadAsAsync<IEnumerable<ScheduleDto>>().Result;
+                ViewModel.raceswon = SelectedRaces;
 
                 return View(ViewModel);
             }

@@ -39,8 +39,8 @@ namespace PassionProject_Danyal.Controllers
                     Round = Schedule.Round,
                     Circuit = Schedule.Circuit,
                     Date = Schedule.Date,
-                    DriverID = Schedule.DriverID
-
+                    DriverID = Schedule.DriverID,
+                    Abbreviation = Schedule.Driver.Abbreviation
 
                 };
                 ScheduleDtos.Add(NewSchedule);
@@ -76,7 +76,8 @@ namespace PassionProject_Danyal.Controllers
                 Round = Schedule.Round,
                 Circuit = Schedule.Circuit,
                 Date = Schedule.Date,
-                DriverID = Schedule.DriverID
+                DriverID = Schedule.DriverID,
+                Abbreviation = Schedule.Driver.Abbreviation
             };
 
             //pass along data as 200 status code OK response
@@ -91,31 +92,29 @@ namespace PassionProject_Danyal.Controllers
         // <example>
         // GET: api/DriverData/FindDriverForSchedule/5
         // </example> 
-        /*
+        
         [HttpGet]
-        [ResponseType(typeof(PlayerDto))]
+        [ResponseType(typeof(DriverDto))]
         public IHttpActionResult FindDriverForSchedule(int id)
         {
             //Finds the winner of the race
             //that match the input raceid
-            Schedule Schedule = db.Schedules
-                .Where(t=> t.Schedules.Any(p=> p.RaceID==id))
+            Driver Driver = db.Drivers
+                .Where(t=> t.Schedule.Any(p=> p.RaceID==id))
                 .FirstOrDefault();
             //if not found, return 404 status code.
-            if (Team == null)
+            if (Driver == null)
             {
                 return NotFound();
             }
 
             //put into a 'friendly object format'
-            DriverDto NewDriver = new DriverDto
-                {
+            DriverDto DriverDto = new DriverDto
+            {
                     DriverID = Driver.DriverID,
                     Name = Driver.Name,
-                    PSNTag = Driver.PSNTag,
                     Nationality = Driver.Nationality,
-                    Abbreviation = Driver.Abbreviation,
-                    Status = Driver.Status,
+                    Abbreviation = Driver.Abbreviation,                    
                     TeamID = Driver.TeamID
                 };
 
@@ -124,13 +123,13 @@ namespace PassionProject_Danyal.Controllers
             return Ok(DriverDto);
         }
 
-        */
+        
 
         /// <summary>
         /// Updates a race in the database given information about the race.
         /// </summary>
         /// <param name="id">The race id</param>
-        /// <param name="player">A race object. Received as POST data.</param>
+        /// <param name="race">A race object. Received as POST data.</param>
         /// <returns></returns>
         /// <example>
         /// POST: api/ScheduleData/UpdateSchedule/5
@@ -176,7 +175,7 @@ namespace PassionProject_Danyal.Controllers
         /// <summary>
         /// Adds a race to the database.
         /// </summary>
-        /// <param name="player">A race object. Sent as POST form data.</param>
+        /// <param name="race">A race object. Sent as POST form data.</param>
         /// <returns>status code 200 if successful. 400 if unsuccessful</returns>
         /// <example>
         /// POST: api/ScheduleData/AddSchedule

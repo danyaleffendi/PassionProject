@@ -204,6 +204,14 @@
     <Compile Include="Migrations\202102200645573_passionproject3.Designer.cs">
       <DependentUpon>202102200645573_passionproject3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102260155091_passionproject4.cs" />
+    <Compile Include="Migrations\202102260155091_passionproject4.Designer.cs">
+      <DependentUpon>202102260155091_passionproject4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102260402361_passionproject5.cs" />
+    <Compile Include="Migrations\202102260402361_passionproject5.Designer.cs">
+      <DependentUpon>202102260402361_passionproject5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\Driver.cs" />
@@ -319,6 +327,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102200645573_passionproject3.resx">
       <DependentUpon>202102200645573_passionproject3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102260155091_passionproject4.resx">
+      <DependentUpon>202102260155091_passionproject4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102260402361_passionproject5.resx">
+      <DependentUpon>202102260402361_passionproject5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
