@@ -22,3 +22,93 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.navbar-inverse {
+    background-color: #cc0d08;
+}
+
+.navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-brand {
+    color: #fff;
+    font-weight: 600;
+}
+
+
+    .navbar-inverse .navbar-nav > li > a:hover {
+        color: #000;
+    }
+    .fbutton {
+        font-size: 16px;
+        font-weight: 300;
+        background-color: #cc0d08;
+        color: #ffffff;
+        padding: 10px 10px;
+        border-radius: 5px;
+        text-decoration: none;
+        border-color: transparent;
+        width: 35%;
+    }
+    .fbutton:hover {
+        background-color: #cc0d08;
+        color: #000;
+        border-color: darkred;
+        cursor: pointer;
+    }
+
+    .fbutton > a {
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+.fbutton > a:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+.banner {
+    background-image: url("/Content/f1header1.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 1;
+    height: 380px;
+    margin-top: -20px;
+}
+h1 {
+    color: #ffffff;
+    padding-top: 70px;
+    padding-left: 50px;
+    font-size: 48px;
+}
+.tagline {
+    color: #ffffff;
+    padding-left: 50px;
+    padding-top: 15px;
+    font-size: 18px;
+}
+
+.detailbutton {
+    font-size: 12px;
+    font-weight: 200;
+    background-color: #cc0d08;
+    color: #ffffff;
+    padding: 5px 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    width: 80px;
+}
+
+    .detailbutton:hover {
+        background-color: #cc0d08;
+        color: #000;
+        cursor: pointer;
+    }
+
+    .detailbutton > a {
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+        .detailbutton > a:hover {
+            color: #000;
+            text-decoration: none;
+        }

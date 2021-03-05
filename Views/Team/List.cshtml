@@ -4,10 +4,10 @@
     ViewBag.Title = "List";
 }
 
-<h2>List</h2>
+<h2>Teams</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add New Team", "Create")
 </p>
 <table class="table">
     <tr>
@@ -29,9 +29,7 @@
             @Html.DisplayFor(modelItem => item.TeamColor)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TeamID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TeamID }) |
-            @Html.ActionLink("Delete", "DeleteConfirm", new { id=item.TeamID })
+            <p class="detailbutton"> @Html.ActionLink("View Profile", "Details", new { id = item.TeamID })</p>
         </td>
     </tr>
 }

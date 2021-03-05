@@ -6,10 +6,10 @@
 
 <h2>Team Profile</h2>
 
-<div>
-    <h4>@Model.team.TeamName</h4>
+<div>    
+    
+    <div> @Html.ActionLink("Edit", "Edit", new { id = Model.team.TeamID }) | @Html.ActionLink("Delete", "DeleteConfirm", new { id = Model.team.TeamID })</div>
     <hr />
-    <div>@Html.ActionLink("Delete", "DeleteConfirm", new { id = Model.team.TeamID })</div>
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.team.TeamName)
@@ -29,7 +29,7 @@
 
     </dl>
 </div>
-<div style="float:right;margin-right:0%; width:49%;">
+<div style="float:right;margin-right:0%; margin-top:-7%; width:49%;">
     <div>
         <h4>Drivers:</h4>
         <div>
@@ -45,8 +45,7 @@
 </div>
 <div style="clear:both;">
 
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.team.TeamID }) |
+    <p>       
         @Html.ActionLink("Back to List", "List")
     </p>
 </div>

@@ -91,7 +91,14 @@ namespace PassionProject_Danyal.Controllers
         // GET: Driver/Create
         public ActionResult Create()
         {
-            return View();
+            UpdateDriver ViewModel = new UpdateDriver();
+            //get information about teams this driver can switch to
+            string url = "teamdata/getteams";
+            HttpResponseMessage response = client.GetAsync(url).Result;
+            IEnumerable<TeamDto> PotentialTeams = response.Content.ReadAsAsync<IEnumerable<TeamDto>>().Result;
+            ViewModel.allteams = PotentialTeams;
+
+            return View(ViewModel);
         }
 
         // POST: Driver/Create
@@ -99,6 +106,7 @@ namespace PassionProject_Danyal.Controllers
         [ValidateAntiForgeryToken()]
         public ActionResult Create(Driver DriverInfo)
         {
+            
             Debug.WriteLine(DriverInfo.Name);
             string url = "driverdata/adddriver";
             Debug.WriteLine(jss.Serialize(DriverInfo));
@@ -111,6 +119,7 @@ namespace PassionProject_Danyal.Controllers
 
                 int DriverID = response.Content.ReadAsAsync<int>().Result;
                 return RedirectToAction("Details", new { id = DriverID });
+
             }
             else
             {

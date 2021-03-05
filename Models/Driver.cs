@@ -32,7 +32,7 @@ namespace PassionProject_Danyal.Models
         public virtual Team Team { get; set; }
         //A driver can win multiple races
         public ICollection<Schedule> Schedule { get; set; }
-        
+
     }
 
     //This class can be used to transfer information about a player.
@@ -56,7 +56,7 @@ namespace PassionProject_Danyal.Models
         public string Status { get; set; }
 
         public int TeamID { get; set; }
-
+        [DisplayName("Team")]
         public string TeamName { get; set; }
     }
 }

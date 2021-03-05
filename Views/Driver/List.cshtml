@@ -7,7 +7,7 @@
 <h2>Drivers</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add New Driver", "Create")
 </p>
 <table class="table">
     <tr>
@@ -24,7 +24,7 @@
         <th>
             @Html.DisplayNameFor(model => model.TeamName)
         </th>
-        <th>Actions</th>
+        <th></th>
     </tr>
 
 @foreach (var item in Model) {
@@ -41,9 +41,8 @@
     <td>
         @Html.DisplayFor(modelItem => item.TeamName)
     </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.DriverID }) |
-        @Html.ActionLink("Details", "Details", new { id = item.DriverID }) 
+    <td>       
+        <p class="detailbutton"> @Html.ActionLink("View Profile", "Details", new { id = item.DriverID }) </p>
     </td>
 </tr>
 }

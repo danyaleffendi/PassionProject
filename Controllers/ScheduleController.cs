@@ -82,7 +82,14 @@ namespace PassionProject_Danyal.Controllers
         // GET: Schedule/Create
         public ActionResult Create()
         {
-            return View();
+            UpdateSchedule ViewModel = new UpdateSchedule();
+            //get information about driver who can win the race
+            string url = "driverdata/getdrivers";
+            HttpResponseMessage response = client.GetAsync(url).Result;
+            IEnumerable<DriverDto> PotentialDrivers = response.Content.ReadAsAsync<IEnumerable<DriverDto>>().Result;
+            ViewModel.alldrivers = PotentialDrivers;
+
+            return View(ViewModel);
         }
 
         // POST: Schedule/Create
@@ -129,8 +136,8 @@ namespace PassionProject_Danyal.Controllers
                 //get information about drivers who can win this race.
                 url = "driverdata/getdrivers";
                 response = client.GetAsync(url).Result;
-                IEnumerable<DriverDto> PotentialPlayers = response.Content.ReadAsAsync<IEnumerable<DriverDto>>().Result;
-                ViewModel.alldrivers = PotentialPlayers;
+                IEnumerable<DriverDto> PotentialDrivers = response.Content.ReadAsAsync<IEnumerable<DriverDto>>().Result;
+                ViewModel.alldrivers = PotentialDrivers;
                 
                 return View(ViewModel);
             }

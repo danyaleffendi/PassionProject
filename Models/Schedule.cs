@@ -32,7 +32,7 @@ namespace PassionProject_Danyal.Models
     public class ScheduleDto
     {
         public int RaceID { get; set; }
-        [DisplayName("Round")]
+        [DisplayName("Race")]
         public int Round { get; set; }
         [DisplayName("Circuit")]
         public string Circuit { get; set; }

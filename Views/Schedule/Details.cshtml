@@ -7,7 +7,7 @@
 <h2>Race Details</h2>
 
 <div>
-    <div>@Html.ActionLink("Delete", "DeleteConfirm", new { id = Model.schedule.RaceID })</div>
+    <div>@Html.ActionLink("Edit", "Edit", new { id = Model.schedule.RaceID }) | @Html.ActionLink("Delete", "DeleteConfirm", new { id = Model.schedule.RaceID })</div>
     <hr />
     <dl class="dl-horizontal">
 
@@ -36,15 +36,14 @@
             @Html.DisplayFor(model => model.schedule.Date)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.schedule.Abbreviation)
+            @Html.DisplayNameFor(model => model.schedule.Abbreviation) 
         </dt>
 
         <dd>
-            @Html.ActionLink(Model.schedule.Abbreviation, "Details", "Driver", new { id = Model.schedule.DriverID }, new { })
+            @Html.ActionLink(Model.schedule.Abbreviation, "Details", "Driver", new { id = Model.schedule.DriverID }, new { }) 
         </dd>
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.schedule.RaceID }) |
+<p>    
     @Html.ActionLink("Back to List", "List")
 </p>

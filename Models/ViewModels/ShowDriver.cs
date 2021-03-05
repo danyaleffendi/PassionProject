@@ -13,5 +13,8 @@ namespace PassionProject_Danyal.Models.ViewModels
 
         //information about the races driver has won
         public IEnumerable<ScheduleDto> raceswon { get; set; }
+
+        //Needed for a dropdownlist which presents the driver with a choice of teams to drive for
+        public IEnumerable<TeamDto> allteams { get; set; }
     }
 }

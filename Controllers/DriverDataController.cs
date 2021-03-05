@@ -223,7 +223,7 @@ namespace PassionProject_Danyal.Controllers
 
             db.Drivers.Add(driver);
             db.SaveChanges();
-
+            Debug.WriteLine(driver.Name);
             return Ok(driver.DriverID);
         }
 

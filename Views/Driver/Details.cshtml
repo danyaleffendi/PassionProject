@@ -7,7 +7,7 @@
 <h2>Driver Profile</h2>
 
 <div>
-    <div>@Html.ActionLink("Delete", "DeleteConfirm", new { id = Model.driver.DriverID })</div>
+    <div>@Html.ActionLink("Edit", "Edit", new { id = Model.driver.DriverID }) | @Html.ActionLink("Delete", "DeleteConfirm", new { id = Model.driver.DriverID })</div>
     <hr />
     <dl class="dl-horizontal">
 
@@ -60,21 +60,20 @@
     </dl>
 </div>
 
-<div style="float:right;margin-right:0%; width:49%;">
+<div style="float:right;margin-right:0%; margin-top:-13%; width:49%;">
     <div>
         <h4>Races Won:</h4>
         <div>
             @foreach (var schedule in Model.raceswon)
             {
                 <div>
-                    @Html.ActionLink("Round #" + schedule.Round + " " + schedule.Circuit + " " + schedule.Date, "Details", "Schedule", new { id = schedule.RaceID }, new { })
+                    @Html.ActionLink("Race #" + schedule.Round + " - " + schedule.Circuit + " - " + schedule.Date, "Details", "Schedule", new { id = schedule.RaceID }, new { })
                 </div>
             }
         </div>
     </div>
 
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.driver.DriverID }) |
+<p>    
     @Html.ActionLink("Back to List", "List")
 </p>
